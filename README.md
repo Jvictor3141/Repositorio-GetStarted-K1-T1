@@ -1,4 +1,4 @@
-# Git — Comandos úteis para ambiente profissional
+# Git — Comandos úteis para ambiente profissional de desenvolvimento
 
 ## 1. Configuração inicial
 
@@ -241,7 +241,7 @@ git pull --rebase
 git fetch
 ```
 
-Baixa informações do repositório remoto **sem modificar sua branch atual**.
+Baixa informações do repositório remoto **sem modificar a branch atual**.
 
 ### `pull`
 
@@ -722,3 +722,31 @@ git stash
 git revert
 git reset
 ```
+
+## Observações Gerais
+
+* Sempre verificar o `git status` antes de executar comandos importantes, principalmente antes de commit, merge, rebase ou reset.
+
+* Antes de usar comandos destrutivos como `git reset --hard`, `git clean -f` ou `git push --force`, ter certeza do que estou fazendo, porque posso perder alterações.
+
+* Sempre que possível, preferir `git push --force-with-lease` em vez de `git push --force`.
+
+* Evitar fazer `rebase` em branches que outras pessoas estão utilizando, porque isso altera o histórico da branch.
+
+* Em projetos profissionais, evitar trabalhar diretamente na `main`. O ideal é criar uma branch para cada funcionalidade, correção ou tarefa.
+
+* Fazer commits pequenos e com mensagens claras. Isso facilita bastante a revisão e também descobrir onde um problema foi introduzido.
+
+* Antes de começar uma tarefa, atualizar minha branch com as alterações mais recentes da `main`.
+
+* Antes de abrir um Pull Request, verificar se os testes estão passando e se não estou enviando arquivos desnecessários.
+
+* Não colocar senhas, tokens, chaves de API ou arquivos `.env` no Git.
+
+* Usar `.gitignore` para evitar enviar arquivos que não devem fazer parte do repositório.
+
+* `git revert` normalmente é mais seguro que `git reset` quando o commit já foi enviado para uma branch compartilhada.
+
+* `git fetch` serve para atualizar as referências do repositório remoto sem alterar meu código local. Já o `git pull` busca as alterações e tenta integrá-las.
+
+* Antes de executar qualquer comando destrutivo, parar e verificar se existe algum trabalho local que ainda não foi salvo ou enviado.
